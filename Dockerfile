@@ -12,6 +12,7 @@ RUN \
     apt-get -qq -y install \
         wget \
         perl-tk \
+        ghostscript \
     && \    
     apt-get -qq -y clean
 
