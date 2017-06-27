@@ -14,6 +14,7 @@ RUN \
         perl-tk \
         ghostscript \
         make \
+        fontconfig \
     && \    
     apt-get -qq -y clean
 
@@ -31,3 +32,8 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 WORKDIR /tex
 
 RUN rm -rf /tmp/tex
+
+## thanks to https://tex.stackexchange.com/a/20175/65754
+RUN \
+    cp $(kpsewhich -var-value TEXMFSYSVAR)/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf && \
+    fc-cache -fsv
