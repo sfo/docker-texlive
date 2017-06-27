@@ -13,6 +13,7 @@ RUN \
         wget \
         perl-tk \
         ghostscript \
+        make \
     && \    
     apt-get -qq -y clean
 
